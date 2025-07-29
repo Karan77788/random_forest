@@ -1,6 +1,9 @@
 services:
   - type: web
-    name: movie-interest-app
+    name: Student_Pass_Predictor
     env: python
-    buildCommand: ""
-    startCommand: python app.py
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PORT
+        value: 10000
